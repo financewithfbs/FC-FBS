@@ -74,6 +74,8 @@ const Footer: React.FC = () => {
   const y = useTransform(scrollYProgress, [0, 1], [0, -30]);
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.01, 1]);
 
+  const currentYear = new Date().getFullYear();
+
   return (
     <div
       ref={sectionRef}
@@ -226,8 +228,8 @@ const Footer: React.FC = () => {
           animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 30 }}
           transition={{ duration: 0.8, ease: easeOut, delay: 1.0 }}
         >
-          Copyright © 2025. All rights reserved. Created with 🩶 for better
-          conversation.
+          Copyright © {currentYear}. All rights reserved. Created with 🩶 for
+          better conversation.
         </motion.p>
       </motion.footer>
     </div>
