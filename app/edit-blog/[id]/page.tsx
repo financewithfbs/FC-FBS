@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
+import Image from "next/image";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { motion } from "framer-motion";
@@ -187,13 +188,15 @@ export default function EditBlogPage() {
                   onChange={(e) => setForm({ ...form, img: e.target.value })}
                 />
                 {form.img && (
-                  <div className="mt-3 rounded-lg overflow-hidden border border-[var(--border-color)]">
-                    <img
+                  <div className="mt-3 rounded-lg overflow-hidden border border-[var(--border-color)] relative h-48">
+                    <Image
                       src={form.img}
                       alt="Preview"
-                      className="w-full h-48 object-cover"
+                      fill
+                      unoptimized
+                      className="object-cover"
                       onError={(e) => {
-                        (e.target as HTMLImageElement).style.display = 'none';
+                        (e.currentTarget as HTMLImageElement).style.display = "none";
                       }}
                     />
                   </div>

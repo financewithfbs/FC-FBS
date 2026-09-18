@@ -206,7 +206,22 @@ const Hero2: React.FC = () => {
             y: -5,
           }}
         >
-          <form className="space-y-6" onSubmit={handleSubmit}>
+          <form className="space-y-5" onSubmit={handleSubmit}>
+            {/* Form heading */}
+            <motion.div
+              className="mb-2"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
+              transition={{ duration: 0.5, ease: easeOut, delay: 0.4 }}
+            >
+              <h3 className="text-xl font-bold text-[var(--text-primary)]">
+                Get early access
+              </h3>
+              <p className="text-sm text-[var(--text-muted)] mt-1">
+                Join students already shaping campus finance.
+              </p>
+            </motion.div>
+
             {[
               {
                 name: "email",
@@ -252,19 +267,67 @@ const Hero2: React.FC = () => {
               />
             ))}
 
-            <motion.button
-              type="submit"
-              className="w-full py-4 bg-[var(--button-primary)] text-white font-semibold rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
-              transition={{ duration: 0.5, ease: easeOut, delay: 0.9 }}
-            >
-              <Send size={18} />
-              Start Free Trial
-            </motion.button>
+            {/* Redesigned CTA button */}
+            <div className="space-y-3 pt-1">
+              <motion.button
+                type="submit"
+                className="group relative w-full py-4 rounded-xl font-semibold text-white overflow-hidden bg-gradient-to-r from-violet-600 via-purple-600 to-fuchsia-600 shadow-[0_8px_24px_-8px_rgba(139,92,246,0.6)] hover:shadow-[0_12px_32px_-8px_rgba(139,92,246,0.8)] focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--card-bg-secondary)] transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
+                transition={{ duration: 0.5, ease: easeOut, delay: 0.9 }}
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                {/* Shine sweep on hover */}
+                <span
+                  className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                />
+                {/* Top highlight for depth */}
+                <span className="absolute inset-x-0 top-0 h-px bg-white/40" />
+
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  <Send
+                    size={18}
+                    className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  />
+                  Start Free Trial
+                  <svg
+                    className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </motion.button>
+
+              {/* Reassurance microcopy */}
+              <motion.p
+                className="text-center text-xs text-[var(--text-muted)] flex items-center justify-center gap-1.5"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isInView ? 1 : 0 }}
+                transition={{ duration: 0.5, ease: easeOut, delay: 1.0 }}
+              >
+                <svg
+                  className="w-3.5 h-3.5 text-green-500"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                No credit card required · Cancel anytime
+              </motion.p>
+            </div>
           </form>
+
           {successMsg && (
             <motion.p
               className="text-sm mt-4 font-medium text-green-600"

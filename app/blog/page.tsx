@@ -137,7 +137,7 @@ function BlogCard({
               cursor: "pointer",
             }}
           >
-            Learn more <span style={{ fontSize: 20 }}>→</span>
+            Learn more <span style={{ fontSize: 20 }}></span>
           </a>
         ) : (
           <span
@@ -152,7 +152,7 @@ function BlogCard({
               opacity: 0.6,
             }}
           >
-            Learn more <span style={{ fontSize: 20 }}>→</span>
+            Learn more <span style={{ fontSize: 20 }}></span>
           </span>
         )}
 

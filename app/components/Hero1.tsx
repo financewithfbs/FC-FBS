@@ -27,7 +27,7 @@ const TiltCard: React.FC<TiltCardProps> = ({
   title,
   description,
   image,
-  linkText = "Learn more →",
+  linkText = "Learn more",
   index,
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
