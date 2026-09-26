@@ -79,7 +79,8 @@ const Footer: React.FC = () => {
   return (
     <div
       ref={sectionRef}
-      className="w-full bg-[var(--footer-bg)] py-3 relative overflow-hidden"
+      className="w-full bg-[var(--footer-bg)] py-3 relative overflow-hidden
+        border-t border-b border-[var(--navbar-border)] shadow-md"
     >
       <motion.div
         className="absolute top-20 left-1/4 w-32 h-32 bg-purple-900 rounded-full opacity-10"

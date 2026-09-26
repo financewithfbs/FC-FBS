@@ -69,10 +69,31 @@ const Navbar: React.FC = () => {
     <>
       <nav
         className="fixed top-0 left-0 w-full z-[1002] 
-  backdrop-blur-xl bg-[var(--navbar-bg)]
-  shadow-md border-b border-[var(--navbar-border)] flex items-center transition-all duration-300"
+  backdrop-blur-xl
+  bg-gradient-to-r from-[#f5f0ff] via-white to-[#fdf0f7]
+  dark:from-[var(--navbar-bg)] dark:via-[var(--navbar-bg)] dark:to-[var(--navbar-bg)]
+  shadow-md border-b border-[var(--navbar-border)] flex items-center transition-all duration-300 py-2"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center w-full">
+        {/* Soft glow accents */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-16 -left-10 w-64 h-32 rounded-full 
+            bg-[var(--primary)]/15 blur-3xl"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-16 right-10 w-64 h-32 rounded-full 
+            bg-[#EC4899]/10 blur-3xl"
+        />
+
+        {/* Bottom accent line */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute bottom-0 left-0 right-0 h-px 
+            bg-gradient-to-r from-transparent via-[var(--primary)]/40 to-transparent"
+        />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center w-full">
           {/* Logo and Text - Wrap in Link with href="/" */}
           <Link href="/" className="flex items-center space-x-3">
             <Image
