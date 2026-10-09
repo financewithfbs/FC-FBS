@@ -164,6 +164,14 @@ const currentMembers = [
     instagram: "#",
     email: "#",
   },
+  {
+    name: "Swati Kumari Shaw",
+    role: "",
+    image: "/images/teammembers_2026-2028/SwatiKumariShaw.png",
+    linkedin: "#",
+    instagram: "#",
+    email: "#",
+  },
 ];
 
 /* ─────────────── alumni (2025-2027) ─────────────── */
